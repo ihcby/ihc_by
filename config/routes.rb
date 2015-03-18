@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :laboratories do
       resources :trial_types
       resources :orders do
+        collection do
+          get :export
+        end
         resources :trials
       end
     end

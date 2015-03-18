@@ -25,9 +25,10 @@ ru:
       # Use the strftime parameters for formats.
       # When no format has been given, it uses default.
       # You can provide other formats here if you like!
-      default: "%Y-%m-%d"
+      default: ""
       short: "%b %d"
       long: "%B %d, %Y"
+      excel: "%d/%m/%Y"
 
     day_names: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
     abbr_day_names: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]

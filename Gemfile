@@ -26,6 +26,7 @@ gem "rolify"
 gem 'less-rails-bootstrap'
 gem 'will_paginate-bootstrap'
 gem 'therubyracer'
+gem 'spreadsheet'
 
 group :development do
   gem 'better_errors'
