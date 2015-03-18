@@ -1,0 +1,24 @@
+= render partial: 'index_breadcrumb'
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th
+      %th= t('activerecord.attributes.account.name')
+      %th= t('activerecord.attributes.account.description')
+      %th
+        .pull-right
+          = link_to t('pages.accounts.links.accounts_list.new'), new_account_path, class: 'btn btn-primary btn-sm'
+
+
+  %tbody
+    - @accounts.each do |account|
+      %tr
+        %td
+        %td= link_to account.name, account
+        %td= account.description
+
+        %td
+          .pull-right
+            = link_to t('action.common.edit'), edit_account_path(account)
+            |
+            = link_to t('action.common.delete'), account, :method => :delete, :data => { :confirm => 'Are you sure?' }

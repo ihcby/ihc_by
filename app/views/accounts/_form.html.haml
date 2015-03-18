@@ -1,0 +1,16 @@
+= render partial: 'entity_breadcrumb'
+.row
+  .col-lg-6.col-lg-offset-3
+    .well
+      = simple_form_for(@account) do |f|
+        %legend
+          = form_title(@account)
+
+        .form-inputs
+          = f.input :name
+        .form-inputs
+          = f.input :description
+
+        .form-actions
+          = f.button :submit, t('common.actions.save')
+

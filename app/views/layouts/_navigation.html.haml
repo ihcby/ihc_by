@@ -1,0 +1,20 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to root_path, class: 'navbar-brand' do
+        %span.glyphicon.glyphicon-home
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        = render 'layouts/navigation_links' if user_signed_in?
+      %ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          %li.pull-right= link_to t('pages.common.signout'), destroy_user_session_path, method:'delete'
+          %li.pull-right= link_to t('pages.home.links.profile.title'), edit_user_registration_path
+        - else
+          %li= link_to t('pages.common.signin'), new_user_session_path
+          %li= link_to t('pages.common.signup'), new_user_registration_path

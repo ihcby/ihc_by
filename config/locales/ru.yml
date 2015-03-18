@@ -1,0 +1,185 @@
+ru:
+  simple_form:
+    labels:
+      booking_plan:
+        online_booking_enabled: "Бронирование online включено"
+        enabled_before: "Остановить за N минут до отправления"
+        seats_available: "Доступно мест"
+      name:
+        name: "Имя"
+      booking_phone:
+        service_provider: 'Оператор'
+      phone:
+        number: "Номер телефона"
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M"
+      short: "%H:%M"
+      long: "%B %d, %Y"
+  date:
+    order:
+      - :year
+      - :month
+      - :day
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%Y-%m-%d"
+      short: "%b %d"
+      long: "%B %d, %Y"
+
+    day_names: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
+    abbr_day_names: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+    abbr_month_names: [~, "Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"]
+    # Used in date_select and datetime_select.
+
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "Валидация неуспешна: %{errors}"
+    models:
+      user: "Пользователь"
+      account: "Организация"
+      antibody: "Антитело"
+      doctor: "Доктор"
+      laboratory: "Лаборатория"
+      trial_type: "Тип исследования"
+      order: "Заказ"
+      trial: "Исследование"
+    attributes:
+      user:
+        name: 'Имя'
+        email: 'Email'
+        phone_number: 'Номер телефона'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        current_password: 'Текущий пароль'
+        remember_me: 'Запомнить меня'
+        roles: 'Роли'
+        registration_date: "Дата регистрации"
+      antibody:
+        name: "Название"
+      account:
+        name: "Название"
+        description: "Описание"
+      doctor:
+        name: "Имя"
+      laboratory:
+        name: "Название"
+      trial_type:
+        name: "Название"
+      order:
+        tracking_number: "Гистологический номер"
+        order_date: "Дата заказа"
+        doctor: "Доктор"
+        trial_type: "Тип исследования"
+        conclusion: "Заключение"
+        comment: "Комментарий"
+        antibodies: "Антитела"
+        trials: "Исследования"
+      trial:
+        name: "Исследование"
+        antibody: "Антитело"
+        antibodies: "Антитела"
+  pages:
+    common:
+      signout: "Выход"
+      signin: "Вход"
+      signup: "Регистрация"
+    home:
+      title: "Главная"
+      links:
+        profile:
+          title: "Профиль"
+        antibody:
+          title: "Антитела"
+        account:
+          title: "Организации"
+        doctors:
+          title: "Доктора"
+        laboratories:
+          title: "Лаборатории"
+        trial_types:
+          title: "Типы исследований"
+        users:
+          title: "Пользователи"
+        orders:
+          title: "Заказы"
+      edit_accounts:
+          title: "Управление пользователями"
+    users:
+      index:
+        title: "Пользователи"
+        change_role: "Изменить роль"
+    antibody:
+      lables:
+        antibodies_list:
+          title: "Каталог антител"
+        doctors:
+          title: "Врачи организации"
+      links:
+        antibodies_list:
+          new: "Добавить антитело"
+      labels:
+        antibodies_show:
+          title: "Информация об антителе"
+    accounts:
+      lables:
+        accounts_list:
+          title: "Аккаунты"
+      links:
+        accounts_list:
+          new: "Добавить аккаунт"
+    doctors:
+      links:
+        doctors_list:
+          new: "Добавить врача"
+    laboratory:
+      lables:
+        laboratories:
+          title: "Каталог лабораторий"
+      links:
+        laboratories_list:
+          new: "Добавить лабораторию"
+    trial_types:
+      lables:
+        trial_types:
+          title: "Типы исследований"
+      links:
+        trial_types_list:
+          new: "Новый тип исследования"
+    orders:
+      lables:
+        orders:
+          title: "Заказы"
+      links:
+        orders_list:
+          new: "Новый заказ"
+    trials:
+      lables:
+        trials:
+          title: "Исследования"
+      links:
+        trials_list:
+          new: "Добавить исследование"
+          new_many: "Добавить несколько исследований"
+  action:
+    common:
+      edit: "Редактировать"
+      delete: "Удалить"
+  common:
+    actions:
+      save: "Сохранить"
+      back: "Назад"
+      show: "Просмотр"
+      edit: "Редактировать"
+      create: "Создать"
+  unauthorized:
+    default: "У вас недостаточно прав для данного действия."
+  will_paginate:
+    previous_label: "&#8592; Предыдущая"
+    next_label: "Следующая &#8594;"

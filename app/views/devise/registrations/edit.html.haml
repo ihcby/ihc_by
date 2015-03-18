@@ -1,0 +1,15 @@
+.row
+  .col-lg-6.col-lg-offset-3
+    .well
+      %h2
+        Изменение профиля
+      = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f|
+        = f.error_notification
+        = display_base_errors resource
+        = f.input :name, autofocus: true
+        = f.input :email, required: true
+        = f.input :password, autocomplete: 'off', hint: 'не заполняйте, если не хотите изменять пароль', required: false
+        = f.input :password_confirmation, :required => false
+        = f.input :current_password, hint: 'нам нужен ваш текущий пароль для того, что бы обновить профиль', required: true
+        = f.button :submit, 'Обновить', :class => 'btn-primary'
+

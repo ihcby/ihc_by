@@ -1,0 +1,10 @@
+.row
+  .col-lg-6.col-lg-offset-3
+    .well
+      .authform
+        = simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post, :role => 'form-inline'}) do |f|
+          %h3 Выслать инструкции для активации повторно
+          = devise_error_messages!
+          .form-group
+            = f.input :email, as: :email, autofocus: true, class: 'form-control'
+            = f.button :submit, 'Выслать инструкцю', class: 'btn-primary'

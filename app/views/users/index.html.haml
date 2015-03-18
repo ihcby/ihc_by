@@ -1,0 +1,22 @@
+= render partial: 'index_breadcrumb'
+.span8
+  %table.table.table-condensed
+    %thead
+      %tr
+        %th= t('activerecord.attributes.user.email')
+        %th= t('activerecord.attributes.user.name')
+        %th= t('activerecord.attributes.user.registration_date')
+        %th= t('activerecord.attributes.user.roles')
+        %th
+    %tbody
+
+      - @users.each do |user|
+        %tr
+          %td= link_to(user.email, edit_user_path(user))
+          %td= user.name
+          %td= user.created_at.to_date
+          - first_role = user.roles.first
+          %td= (first_role.resource ? " #{first_role.resource.name}: " : '') + first_role.name.titleize unless first_role.nil?
+          %td= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini') unless user == current_user
+.container.pagination-container
+  = will_paginate @users, renderer: BootstrapPagination::Rails

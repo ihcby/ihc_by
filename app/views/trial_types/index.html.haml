@@ -1,0 +1,24 @@
+= render partial: 'index_breadcrumb'
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th
+      %th= t('activerecord.attributes.trial_type.name')
+      %th
+        .pull-right
+          = link_to t('pages.trial_types.links.trial_types_list.new'), new_account_laboratory_trial_type_path(@account, @laboratory), class: 'btn btn-primary btn-sm'
+
+
+  %tbody
+    - @trial_types.each do |trial_type|
+      %tr
+        %td
+        %td= link_to trial_type.name, account_laboratory_trial_type_path(@account, @laboratory, trial_type)
+        %td
+          .pull-right
+            = link_to t('action.common.edit'), edit_account_laboratory_trial_type_path(@account, @laboratory, trial_type)
+            |
+            = link_to t('action.common.delete'), account_laboratory_trial_type_path(@account, @laboratory, trial_type), :method => :delete, :data => { :confirm => 'Are you sure?' }
+.container.pagination-container
+  = will_paginate @trial_types, renderer: BootstrapPagination::Rails

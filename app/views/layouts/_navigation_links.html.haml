@@ -1,0 +1,11 @@
+- if @account && !@account.new_record?
+
+  %li= link_to t('pages.home.links.doctors.title'), account_doctors_path(@account) if can?(:manage, Doctor)
+  %li= link_to t('pages.home.links.laboratories.title'), account_laboratories_path(@account) if can?(:manage, Laboratory)
+  - if @laboratory && !@laboratory.new_record?
+    %li= link_to t('pages.home.links.trial_types.title'), account_laboratory_trial_types_path(@account, @laboratory) if can?(:manage, TrialType)
+    %li= link_to t('pages.home.links.orders.title'), account_laboratory_orders_path(@account, @laboratory) if can?(:manage, Order)
+- else
+  %li= link_to t('pages.home.links.account.title'), accounts_path if can?(:manage, Account)
+  %li= link_to t('pages.home.links.antibody.title'), antibodies_path if can?(:manage, Account)
+  %li= link_to t('pages.home.links.users.title'), users_path if can?(:manage, User)

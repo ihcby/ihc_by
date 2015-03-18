@@ -1,0 +1,4 @@
+%ol.breadcrumb
+  %li= link_to @account.name, @account
+  %li= link_to t('pages.home.links.doctors.title'), account_doctors_path(@account)
+  %li.active= @doctor.name

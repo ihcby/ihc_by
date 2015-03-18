@@ -1,0 +1,8 @@
+= render partial: 'entity_breadcrumb'
+%p#notice= notice
+
+%p
+  %b= t('activerecord.attributes.laboratory.name')
+  = @laboratory.name
+
+= link_to t('action.common.edit'), edit_account_laboratory_path(@account, @laboratory)

@@ -1,0 +1,15 @@
+= render partial: 'entity_breadcrumb'
+.row
+  .col-lg-6.col-lg-offset-3
+    .well
+      = simple_form_for(:trial, url: account_laboratory_order_trials_path(@account, @laboratory, @order)) do |f|
+        %legend
+          = form_title(Trial.new)
+        .row
+          .col-lg-9
+            .form-inputs
+              = select_tag(:antibodies_ids, options_from_collection_for_select(@order.not_used_antibodies,:id,:name), class: 'form-control selectized', multiple: true, placeholder: t('activerecord.attributes.trial.antibodies'))
+          .col-lg-3
+            .form-actions
+              = f.button :submit, t('common.actions.create')
+

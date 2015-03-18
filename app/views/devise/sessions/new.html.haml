@@ -1,0 +1,10 @@
+.row
+  .col-lg-6.col-lg-offset-3
+    .well
+      %h2 Авторизация
+      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
+        = f.input :email, :autofocus => true
+        = f.input :password
+        = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
+        = f.button :submit, "Вход", :class => 'btn-primary'
+      = render "devise/shared/links"

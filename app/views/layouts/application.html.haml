@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    %title= content_for?(:title) ? yield(:title) : 'ihc.by'
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'ihc.by'}"}
+    = render partial: 'layouts/application_header'
+
+  %body
+    %header
+      = render 'layouts/navigation'
+
+    .container{style: 'padding-top: 40px;'}
+      = render 'layouts/messages'
+      = yield
+
+    %footer
+      &copy; 2014 - #{Date.today.year}, #{link_to 'ihc.by', root_path}
+    = yield :javascript_includes

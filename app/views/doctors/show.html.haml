@@ -1,0 +1,6 @@
+= render partial: 'entity_breadcrumb'
+%p#notice= notice
+
+%h2= @doctor.name
+
+= link_to t('action.common.edit'), edit_account_doctor_path(@account, @doctor)

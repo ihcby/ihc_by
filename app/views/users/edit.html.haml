@@ -1,0 +1,18 @@
+= render partial: 'entity_breadcrumb'
+.row
+  .col-lg-6.col-lg-offset-3
+    .well
+      = simple_form_for(@user) do |f|
+        %legend
+          = form_title(@user)
+
+        .form-inputs
+          = f.input :email
+        .form-inputs
+          = f.input :name
+        .form-inputs
+          = f.association :roles, as: :select, collection: Role.all, label_method: -> (role)  { "#{role.name.titleize}" + (role.resource ? " (#{role.resource.name})" : '')}, multiple: false, input_html: {class: 'selectized'}
+
+        .form-actions
+          = f.button :submit, t('common.actions.save')
+

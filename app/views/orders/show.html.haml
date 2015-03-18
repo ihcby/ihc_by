@@ -1,0 +1,47 @@
+= render partial: 'entity_breadcrumb'
+
+%p
+  %b= "#{t('activerecord.attributes.order.order_date')}:"
+  = @order.order_date
+%p
+  %b= "#{t('activerecord.attributes.order.doctor')}:"
+  = @order.doctor.name
+%p
+  %b= "#{t('activerecord.attributes.order.trial_type')}:"
+  = @order.trial_type.name
+%p
+  %b= "#{t('activerecord.attributes.order.tracking_number')}:"
+  = @order.tracking_number
+%h3= t('pages.trials.lables.trials.title')
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th
+      %th= t('activerecord.models.antibody')
+      %th
+        .pull-right
+          = link_to t('pages.trials.links.trials_list.new_many'), new_account_laboratory_order_trial_path(@account, @laboratory, @order), class: 'btn btn-primary btn-sm'
+
+
+  %tbody
+    - @order.trials.each do |trial|
+      %tr
+        %td
+        %td= trial.antibody.name
+        %td
+          .pull-right
+            = link_to t('action.common.edit'), edit_account_laboratory_order_trial_path(@account, @laboratory, @order, trial)
+            |
+            = link_to t('action.common.delete'), account_laboratory_order_trial_path(@account, @laboratory, @order, trial), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%p
+  %b= "#{t('activerecord.attributes.order.comment')}:"
+  = @order.comment
+%p
+  %b= "#{t('activerecord.attributes.order.conclusion')}:"
+  = @order.conclusion
+
+
+
+= link_to t('action.common.edit'), edit_account_laboratory_order_path(@account,@laboratory,@order)

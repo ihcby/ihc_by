@@ -1,0 +1,22 @@
+= render partial: 'index_breadcrumb'
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th
+      %th= t('activerecord.attributes.antibody.name')
+      %th
+        .pull-right
+          = link_to t('pages.antibody.links.antibodies_list.new'), new_antibody_path, class: 'btn btn-primary btn-sm'
+
+
+  %tbody
+    - @antibodies.each do |antibody|
+      %tr
+        %td
+        %td= link_to antibody.name, antibody
+        %td
+          .pull-right
+            = link_to t('action.common.edit'), edit_antibody_path(antibody)
+            |
+            = link_to t('action.common.delete'), antibody, :method => :delete, :data => { :confirm => 'Are you sure?' }

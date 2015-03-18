@@ -1,0 +1,23 @@
+= render partial: 'index_breadcrumb'
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th
+      %th= t('activerecord.attributes.laboratory.name')
+      %th
+        .pull-right
+          = link_to t('pages.laboratory.links.laboratories_list.new'), new_account_laboratory_path(@account), class: 'btn btn-primary btn-sm'
+
+
+  %tbody
+    - @laboratories.each do |laboratory|
+      %tr
+        %td
+        %td= link_to laboratory.name, account_laboratory_path(@account, laboratory)
+        %td
+          .pull-right
+            = link_to t('action.common.edit'), edit_account_laboratory_path(@account, laboratory)
+            |
+            = link_to t('action.common.delete'), account_laboratory_path(@account, laboratory), :method => :delete, :data => { :confirm => 'Are you sure?' }
+.container.pagination-container
+  = will_paginate @laboratories, renderer: BootstrapPagination::Rails

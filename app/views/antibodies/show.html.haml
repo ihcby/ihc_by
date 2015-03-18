@@ -1,0 +1,11 @@
+= render partial: 'entity_breadcrumb'
+
+%p#notice= notice
+
+%p
+  %b
+    =t('activerecord.attributes.antibody.name')
+    \:
+  = @antibody.name
+
+= link_to t('common.actions.edit'), edit_antibody_path(@antibody)

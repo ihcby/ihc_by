@@ -1,0 +1,14 @@
+= render partial: 'entity_breadcrumb'
+.row
+  .col-lg-6.col-lg-offset-3
+    .well
+      = simple_form_for([@account, @laboratory, @order, @trial]) do |f|
+        %legend
+          = form_title(@trial)
+
+        .form-inputs
+          = f.association :antibody, collection: @order.not_used_antibodies, input_html: {class: 'selectized'}
+
+        .form-actions
+          = f.button :submit, t('common.actions.save')
+
