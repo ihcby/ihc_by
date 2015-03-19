@@ -20,6 +20,12 @@
 //= require bootstrap-sprockets
 //= require selectize
 
+//= require moment
+//= require bootstrap-datetimepicker
+//= require pickers
+//= require moment/ru
+
+
 //= require orders
 //= require trials
 

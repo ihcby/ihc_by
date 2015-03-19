@@ -9,7 +9,7 @@
         .form-inputs
           = f.input :tracking_number
         .form-inputs
-          = f.input :order_date
+          = f.input :order_date, as: :date_picker, input_html: {class: 'datetimepicker form-control'}, autocomplete: 'off'
         .form-inputs
           = f.association :doctor, as: :select, collection: @account.doctors, input_html: {class: 'selectized'}
         .form-inputs

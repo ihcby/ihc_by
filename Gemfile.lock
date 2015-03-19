@@ -1,3 +1,18 @@
+GIT
+  remote: git://github.com/derekprior/momentjs-rails.git
+  revision: 4b1b0a64bca3eb5ab8741eb4a4d2c1c5a6fdf04b
+  specs:
+    momentjs-rails (2.9.0)
+      railties (>= 3.1)
+
+GIT
+  remote: git://github.com/zpaulovics/datetimepicker-rails.git
+  revision: e41ba7f805d1eca19153ff91b27423a4aff5e4b6
+  branch: master
+  submodules: true
+  specs:
+    datetimepicker-rails (4.3.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -337,6 +352,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   coveralls
   database_cleaner
+  datetimepicker-rails!
   devise
   devise-i18n
   factory_girl_rails
@@ -349,6 +365,7 @@ DEPENDENCIES
   jquery-turbolinks
   launchy
   less-rails-bootstrap
+  momentjs-rails (~> 2.9)!
   mysql2
   pry-rails
   pry-rescue

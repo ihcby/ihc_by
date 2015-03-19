@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @laboratory.update(laboratory_params)
+    @order.update(order_params)
     respond_with(@account, @laboratory, @order)
   end
 
