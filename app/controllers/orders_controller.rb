@@ -57,7 +57,7 @@ class OrdersController < ApplicationController
     header_format = Spreadsheet::Format.new :color => :green, :weight => :bold
     data.row(0).default_format = header_format
 
-    trials = orders.collect { |order| order.trials.collect { |trial| {id: order.id ,date: I18n.l(order.order_date, format: :excel), antibody_name: trial.antibody.name } }}.flatten
+    trials = orders.collect { |order| order.trials.collect { |trial| {id: order.id ,date: I18n.l(order.order_date), antibody_name: trial.antibody.name } }}.flatten
 
     trials.each_with_index do |trial, i|
       data.row(i+1).push trial[:id], trial[:date], trial[:antibody_name]
