@@ -1,1 +1,2 @@
 [![Build Status](https://travis-ci.org/ihcby/ihc_by.svg?branch=master)](https://travis-ci.org/ihcby/ihc_by)
+[![Coverage Status](https://coveralls.io/repos/ihcby/ihc_by/badge.svg)](https://coveralls.io/r/ihcby/ihc_by)

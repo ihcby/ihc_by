@@ -3,3 +3,5 @@ rvm:
   - 2.2.1
 before_script:
   - cp config/database.example.yml config/database.yml
+env:
+  - COV="true"
