@@ -2,4 +2,4 @@
   %li= link_to @account.name, @account
   %li= link_to @laboratory.name, account_laboratory_path(@account,@laboratory)
   %li= link_to t('pages.home.links.trial_types.title'), account_laboratory_trial_types_path(@account,@laboratory)
-  %li.active= @trial_type.name
+  %li.active= @trial_type.persisted? ? @trial_type.name : t('pages.trial_types.links.trial_types_list.new')

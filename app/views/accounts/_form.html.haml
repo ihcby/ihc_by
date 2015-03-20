@@ -6,11 +6,7 @@
         %legend
           = form_title(@account)
 
-        .form-inputs
-          = f.input :name
-        .form-inputs
-          = f.input :description
-
-        .form-actions
-          = f.button :submit, t('common.actions.save')
+        = f.input :name
+        = f.input :description
+        = f.button :submit, t('common.actions.save')
 

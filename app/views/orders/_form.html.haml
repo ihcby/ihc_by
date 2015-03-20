@@ -5,19 +5,11 @@
       = simple_form_for([@account, @laboratory, @order]) do |f|
         %legend
           = form_title(@order)
-
-        .form-inputs
-          = f.input :tracking_number
-        .form-inputs
-          = f.input :order_date, as: :date_picker, input_html: {class: 'datetimepicker form-control'}, autocomplete: 'off'
-        .form-inputs
-          = f.association :doctor, as: :select, collection: @account.doctors, input_html: {class: 'selectized'}
-        .form-inputs
-          = f.association :trial_type,as: :select,  collection: @laboratory.trial_types , input_html: {class: 'selectized'}
-        .form-inputs
-          = f.input :conclusion, as: :text
-        .form-inputs
-          = f.input :comment, as: :text
-        .form-actions
-          = f.button :submit, t('common.actions.save')
+        = f.input :tracking_number
+        = f.input :order_date, as: :date_picker, input_html: {class: 'datetimepicker form-control'}, autocomplete: 'off'
+        = f.association :doctor, as: :select, collection: @account.doctors, input_html: {class: 'selectized'}
+        = f.association :trial_type,as: :select,  collection: @laboratory.trial_types , input_html: {class: 'selectized'}
+        = f.input :conclusion, as: :text
+        = f.input :comment, as: :text
+        = f.button :submit, t('common.actions.save')
 

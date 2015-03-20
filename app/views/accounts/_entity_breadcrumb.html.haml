@@ -1,2 +1,3 @@
 %ol.breadcrumb
-  %li.active= @account.name
+  %li= link_to t('pages.home.links.account.title'), accounts_path
+  %li.active= @account.persisted? ? @account.name : t('pages.accounts.links.accounts_list.new')

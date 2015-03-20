@@ -6,9 +6,6 @@
         %legend
           = form_title(@laboratory)
 
-        .form-inputs
-          = f.input :name
-
-        .form-actions
-          = f.button :submit, t('common.actions.save')
+        = f.input :name
+        = f.button :submit, t('common.actions.save')
 
