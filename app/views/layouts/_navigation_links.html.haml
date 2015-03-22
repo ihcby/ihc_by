@@ -7,5 +7,4 @@
     %li= link_to t('pages.home.links.orders.title'), account_laboratory_orders_path(@account, @laboratory) if can?(:manage, Order)
 - else
   %li= link_to t('pages.home.links.account.title'), accounts_path if can?(:manage, Account)
-  %li= link_to t('pages.home.links.antibody.title'), antibodies_path if can?(:manage, Account)
   %li= link_to t('pages.home.links.users.title'), users_path if can?(:manage, User)

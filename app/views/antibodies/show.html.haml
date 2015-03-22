@@ -8,4 +8,4 @@
     \:
   = @antibody.name
 
-= link_to t('common.actions.edit'), edit_antibody_path(@antibody)
+= link_to t('common.actions.edit'), edit_antibody_path(@antibody) if can?([:update], Antibody)

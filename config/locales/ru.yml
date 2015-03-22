@@ -179,6 +179,8 @@ ru:
       edit: "Редактировать"
       delete: "Удалить"
   common:
+    question:
+      are_you_sure: 'Вы действительно хотите удалить запись?'
     actions:
       save: "Сохранить"
       back: "Назад"

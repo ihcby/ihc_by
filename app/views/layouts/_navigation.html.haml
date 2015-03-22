@@ -10,6 +10,7 @@
         %span.glyphicon.glyphicon-home
     .collapse.navbar-collapse
       %ul.nav.navbar-nav
+        %li= link_to t('pages.home.links.antibody.title'), antibodies_path if can?(:read, Antibody)
         = render 'layouts/navigation_links' if user_signed_in?
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
