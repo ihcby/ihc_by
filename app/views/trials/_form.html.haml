@@ -7,7 +7,7 @@
           = form_title(@trial)
 
         .form-inputs
-          = f.association :antibody, collection: @order.not_used_antibodies, input_html: {class: 'selectized'}
+          = f.association :antibody, collection: @antibodies, input_html: {class: 'selectized'}
 
         .form-actions
           = f.button :submit, t('common.actions.save')

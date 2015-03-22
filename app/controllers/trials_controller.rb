@@ -5,6 +5,7 @@ class TrialsController < ApplicationController
   load_and_authorize_resource :order, through: :laboratory
   load_and_authorize_resource :trial, through: :order
   skip_load_resource :trial, only: [:create, :index]
+  before_filter :load_antibodies, only: [:new, :edit]
 
   def new
   end
@@ -40,6 +41,10 @@ class TrialsController < ApplicationController
   end
   def trials_params
     params.require(:antibodies_ids)
+  end
+
+  def load_antibodies
+    @antibodies = Antibody.all
   end
 
 end
