@@ -1,11 +1,15 @@
 if ENV['COV'] == 'true'
   require 'coveralls'
-  require 'simplecov'
+  require 'simplecov_helper'
   Coveralls.wear!
   SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
       SimpleCov::Formatter::HTMLFormatter,
       Coveralls::SimpleCov::Formatter
   ]
+
+
+
+
   SimpleCov.start
 end
 

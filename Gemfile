@@ -57,6 +57,8 @@ end
 group :test do
   gem 'coveralls', require: false
   gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
+  gem 'shoulda-matchers', require: false
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'

@@ -48,6 +48,12 @@ ru:
     errors:
       messages:
         record_invalid: "Валидация неуспешна: %{errors}"
+      models:
+        antibody:
+          attributes:
+            name:
+              blank: "Название антитела отсутствует."
+              taken: "Антитело с таким названием уже присутствует в каталоге"
     models:
       user: "Пользователь"
       account: "Организация"
