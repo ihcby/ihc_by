@@ -5,8 +5,24 @@ class OrdersController < ApplicationController
   load_and_authorize_resource :order, through: :laboratory
   skip_load_resource :order, only: [:create, :index]
 
+  before_filter :restore_order_query, only: :index
+
   def index
     @orders = @laboratory.orders.paginate(page: params[:page])
+
+    if @order_params.trial_type_id
+      @orders = @orders.where(trial_type_id: @order_params.trial_type_id)
+    end
+
+    if @order_params.doctor_id
+      @orders = @orders.where(doctor_id: @order_params.doctor_id)
+    end
+
+    if @order_params.tracking_number && !@order_params.tracking_number.blank?
+      @orders = @orders.where("tracking_number like '%#{@order_params.tracking_number}%'")
+    end
+    @orders = @orders.paginate(page: params[:page])
+
     respond_with(@account, @laboratory, @orders)
   end
 
@@ -49,7 +65,6 @@ class OrdersController < ApplicationController
     params.require(:order).permit(:order_date, :doctor_id, :trial_type_id, :conclusion, :tracking_number, :trials_id, :comment)
   end
 
-
   def prepare_excel(orders)
     book = Spreadsheet::Workbook.new
     data = book.create_worksheet :name => 'Исследования'
@@ -57,7 +72,7 @@ class OrdersController < ApplicationController
     header_format = Spreadsheet::Format.new :color => :green, :weight => :bold
     data.row(0).default_format = header_format
 
-    trials = orders.collect { |order| order.trials.collect { |trial| {id: order.id ,date: I18n.l(order.order_date), antibody_name: trial.antibody.name } }}.flatten
+    trials = orders.collect { |order| order.trials.collect { |trial| {id: order.id, date: I18n.l(order.order_date), antibody_name: trial.antibody.name} } }.flatten
 
     trials.each_with_index do |trial, i|
       data.row(i+1).push trial[:id], trial[:date], trial[:antibody_name]
@@ -70,6 +85,10 @@ class OrdersController < ApplicationController
 
   def excel_file_name(company)
     "trials_#{Date.today.to_s.gsub('-', '_')}.xls"
+  end
+
+  def restore_order_query
+    @order_params= params[:order] ? Order.new(order_params) : Order.new
   end
 
 end

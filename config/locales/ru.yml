@@ -199,6 +199,7 @@ ru:
       show: "Просмотр"
       edit: "Редактировать"
       create: "Создать"
+      search: "Искать"
   unauthorized:
     default: "У вас недостаточно прав для данного действия."
   will_paginate:

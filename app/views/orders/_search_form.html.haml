@@ -1,0 +1,12 @@
+.row
+  .col-lg-12
+    .well
+      = simple_form_for(@order_params, url: account_laboratory_orders_path(@account,@laboratory), wrapper: false, method: :get) do |f|
+        .form-group
+          = f.input :tracking_number, class: 'form-control', placeholder: t('activerecord.attributes.order.tracking_number'), autocomplete: 'off', required: false
+        .form-group
+          = f.input_field :doctor_id, as: :select, collection: @account.doctors, class: 'selectized', placeholder: t('activerecord.attributes.order.doctor'), required: false
+        .form-group
+          = f.input_field :trial_type_id ,as: :select,  collection: @laboratory.trial_types , class: 'selectized input-md', placeholder: t('activerecord.attributes.order.trial_type'), required: false
+        = f.button :submit, t('common.actions.search')
+
