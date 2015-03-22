@@ -7,6 +7,9 @@ SimpleCov.start do
   add_group "Controllers", "app/controllers"
   add_group 'Helpers', 'app/helpers'
   add_group 'Views', 'app/views'
+  add_group 'Views', 'app/views'
+  add_group 'Services', 'app/services'
+  add_group 'Inputs', 'app/inputs'
   add_group 'Lib', 'lib'
 end
 
