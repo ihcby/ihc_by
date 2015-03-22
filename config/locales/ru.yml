@@ -195,7 +195,7 @@ ru:
       links:
         trials_list:
           new: "Добавить исследование"
-          new_many: "Добавить несколько исследований"
+          new_many: "Добавить исследования"
         trials_show:
           add_picture: "Добавить изображение"
   action:
