@@ -1,0 +1,11 @@
+%h4= t('pages.accounts.labels.doctors.list.title')
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th
+      %th= t('activerecord.attributes.doctor.name')
+  %tbody
+    - doctors.each do |doctor|
+      %tr
+        %td
+        %td= link_to doctor.name, account_doctor_path(@account, doctor)

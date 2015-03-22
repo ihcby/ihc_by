@@ -1,0 +1,11 @@
+%h4= t('pages.accounts.labels.laboratories.list.title')
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th
+      %th= t('activerecord.attributes.laboratory.name')
+  %tbody
+    - laboratories.each do |laboratory|
+      %tr
+        %td
+        %td= link_to laboratory.name, account_laboratory_path(@account, laboratory)

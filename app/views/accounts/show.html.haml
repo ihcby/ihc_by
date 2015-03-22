@@ -1,10 +1,16 @@
 = render partial: 'entity_breadcrumb'
 %p#notice= notice
 
-%h3
-  = @account.name
-%p
-  %b= "#{t('activerecord.attributes.account.description')}:"
-  = @account.description
+.row
+  .col-lg-12
+    %h3
+      = @account.name
+    %p
+      %b= "#{t('activerecord.attributes.account.description')}:"
+      = @account.description
+.row
+  .col-lg-6= render partial: 'laboratories', locals: {laboratories: @account.laboratories}
+  .col-lg-6= render partial: 'doctors', locals: {doctors: @account.doctors}
+
 
 = link_to t('action.common.edit'), edit_account_path(@account)

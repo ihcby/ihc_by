@@ -82,7 +82,7 @@ ru:
       doctor:
         name: "Имя"
       laboratory:
-        name: "Название"
+        name: "Название лаборатории"
       trial_type:
         name: "Название"
       order:
@@ -141,9 +141,15 @@ ru:
         antibodies_show:
           title: "Информация об антителе"
     accounts:
-      lables:
+      labels:
         accounts_list:
           title: "Аккаунты"
+        laboratories:
+          list:
+            title: "Лаборатории"
+        doctors:
+          list:
+            title: "Доктора"
       links:
         accounts_list:
           new: "Добавить аккаунт"
