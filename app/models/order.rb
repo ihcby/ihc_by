@@ -12,10 +12,4 @@ class Order < ActiveRecord::Base
 
   default_scope { order(order_date: :desc) }
 
-
-  def not_used_antibodies
-    Antibody.where.not(id: trials.map { |trial| trial.antibody_id })
-  end
-
-
 end
