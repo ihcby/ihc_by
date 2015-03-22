@@ -67,7 +67,10 @@ ru:
       trial_type: "Тип исследования"
       order: "Заказ"
       trial: "Исследование"
+      picture: "Изображения"
     attributes:
+      picture:
+        image: "Изображение"
       user:
         name: 'Имя'
         email: 'Email'
@@ -186,10 +189,15 @@ ru:
       lables:
         trials:
           title: "Исследования"
+        trials_show:
+          pictures: "Изображения"
+          new_picture: "Новое изображение"
       links:
         trials_list:
           new: "Добавить исследование"
           new_many: "Добавить несколько исследований"
+        trials_show:
+          add_picture: "Добавить изображение"
   action:
     common:
       edit: "Редактировать"

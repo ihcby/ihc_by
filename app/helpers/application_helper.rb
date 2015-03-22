@@ -26,4 +26,7 @@ module ApplicationHelper
   end
 
 
+  def trial_name(trial)
+    "#{trial.id} (#{trial.antibody.name})"
+  end
 end

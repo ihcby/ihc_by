@@ -1,0 +1,10 @@
+= render partial: 'entity_breadcrumb'
+.row
+  .col-lg-6.col-lg-offset-3
+    .well
+      = simple_form_for(:picture, url: account_laboratory_order_trial_pictures_path(@account, @laboratory, @order, @trial)) do |f|
+        %legend
+          = form_title(@picture)
+        = f.input :image, as: :file
+        = f.button :submit, t('common.actions.create')
+

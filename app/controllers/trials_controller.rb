@@ -24,6 +24,9 @@ class TrialsController < ApplicationController
     respond_with(@account, @laboratory, @order)
   end
 
+  def show
+  end
+
   def update
     @trial.update(trial_params)
     respond_with(@account, @laboratory, @order)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150308164551) do
+ActiveRecord::Schema.define(version: 20150322132732) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -59,6 +59,18 @@ ActiveRecord::Schema.define(version: 20150308164551) do
   add_index "orders", ["doctor_id"], name: "index_orders_on_doctor_id", using: :btree
   add_index "orders", ["laboratory_id"], name: "index_orders_on_laboratory_id", using: :btree
   add_index "orders", ["trial_type_id"], name: "index_orders_on_trial_type_id", using: :btree
+
+  create_table "pictures", force: :cascade do |t|
+    t.integer  "trial_id",           limit: 4
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+  end
+
+  add_index "pictures", ["trial_id"], name: "index_pictures_on_trial_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -118,6 +130,7 @@ ActiveRecord::Schema.define(version: 20150308164551) do
 
   add_foreign_key "orders", "doctors"
   add_foreign_key "orders", "trial_types"
+  add_foreign_key "pictures", "trials"
   add_foreign_key "trials", "antibodies"
   add_foreign_key "trials", "orders"
 end

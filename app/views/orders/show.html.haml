@@ -27,13 +27,14 @@
   %tbody
     - @order.trials.each do |trial|
       %tr
-        %td
+        %td= link_to trial.id, account_laboratory_order_trial_path(@account, @laboratory, @order, trial)
         %td= trial.antibody.name
         %td
           .pull-right
-            = link_to t('action.common.edit'), edit_account_laboratory_order_trial_path(@account, @laboratory, @order, trial)
-            |
-            = link_to t('action.common.delete'), account_laboratory_order_trial_path(@account, @laboratory, @order, trial), :method => :delete, :data => { :confirm => 'Are you sure?' }
+            = link_to edit_account_laboratory_order_trial_path(@account, @laboratory, @order, trial), class: 'btn btn-default', alt: t('action.common.edit'), title: t('action.common.edit') do
+              %span.glyphicon.glyphicon-pencil
+            = link_to account_laboratory_order_trial_path(@account, @laboratory, @order, trial), method: :delete, data: { confirm:  t('common.question.are_you_sure') }, class: 'btn btn-danger' do
+              %span.glyphicon.glyphicon-remove
 
 %p
   %b= "#{t('activerecord.attributes.order.comment')}:"

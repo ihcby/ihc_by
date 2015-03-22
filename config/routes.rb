@@ -8,7 +8,9 @@ Rails.application.routes.draw do
         collection do
           get :export
         end
-        resources :trials
+        resources :trials do
+          resources :pictures
+        end
       end
     end
   end

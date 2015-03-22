@@ -1,0 +1,32 @@
+= render partial: 'entity_breadcrumb'
+
+%p
+  %b= "#{t('activerecord.models.trial')}:"
+  = @trial.id
+
+%p
+  %b= "#{t('activerecord.attributes.trial.antibody')}:"
+  = @trial.antibody.name
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th
+      %th= t('activerecord.models.picture')
+      %th
+        .pull-right
+          = link_to t('pages.trials.links.trials_show.add_picture'), new_account_laboratory_order_trial_picture_path(@account, @laboratory, @order, @trial), class: 'btn btn-primary btn-sm'
+
+
+  %tbody
+    - @trial.pictures.each do |picture|
+      %tr
+        %td
+        %td= image_tag  picture.image.url(:thumb)
+        %td
+          .pull-right
+            = link_to account_laboratory_order_trial_picture_path(@account, @laboratory, @order, @trial, picture), method: :delete, data: { confirm:  t('common.question.are_you_sure') }, class: 'btn btn-danger' do
+              %span.glyphicon.glyphicon-remove
+
+
+= link_to t('action.common.edit'), edit_account_laboratory_order_trial_path(@account,@laboratory,@order,@trial)

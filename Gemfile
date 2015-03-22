@@ -29,6 +29,7 @@ gem 'therubyracer'
 gem 'spreadsheet'
 gem 'momentjs-rails', '~> 2.9', :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'paperclip', '~> 4.2'
 
 group :development do
   gem 'better_errors'

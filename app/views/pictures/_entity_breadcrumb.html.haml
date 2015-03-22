@@ -3,9 +3,5 @@
   %li= link_to @laboratory.name, account_laboratory_path(@account,@laboratory)
   %li= link_to t('pages.home.links.orders.title'), account_laboratory_orders_path(@account,@laboratory)
   %li= link_to @order.tracking_number, account_laboratory_order_path(@account,@laboratory,@order)
-
-  - is_new = @trial.nil? || @trial.antibody.nil?
-  - if is_new
-    %li{ class: active_if(is_new) }= t('pages.trials.lables.trials.title')
-  - else
-    %li.active= trial_name(@trial)
+  %li= link_to trial_name(@trial), account_laboratory_order_path(@account,@laboratory,@order,@trial)
+  %li.active= t('pages.trials.lables.trials_show.new_picture')
