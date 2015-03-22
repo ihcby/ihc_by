@@ -22,7 +22,11 @@
     - @trial.pictures.each do |picture|
       %tr
         %td
-        %td= image_tag  picture.image.url(:thumb)
+        %td
+          .row
+            .col-xs-6.col-md-3
+              %a.thumbnail.fancybox{href: picture.image.url(:large), rel: 'fancybox'}
+                = image_tag  picture.image.url(:thumb)
         %td
           .pull-right
             = link_to account_laboratory_order_trial_picture_path(@account, @laboratory, @order, @trial, picture), method: :delete, data: { confirm:  t('common.question.are_you_sure') }, class: 'btn btn-danger' do

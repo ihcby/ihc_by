@@ -20,6 +20,9 @@
 //= require bootstrap-sprockets
 //= require selectize
 
+//= require fancybox
+//= require fancybox-init
+
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers
