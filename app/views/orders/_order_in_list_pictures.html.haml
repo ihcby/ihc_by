@@ -1,0 +1,6 @@
+- unless pictures.empty?
+  .row.images-block.pull-down
+    .col-sm-12.order-list-thumbnails
+      - pictures.each do |picture|
+        %a.thumbnail.fancybox{href: picture.image.url(:large), rel: 'fancybox', data: {"fancybox-group" => "order-in-list-#{id}" }}
+          = image_tag picture.image.url(:thumb_small)
