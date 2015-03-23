@@ -68,14 +68,28 @@ class OrdersController < ApplicationController
   def prepare_excel(orders)
     book = Spreadsheet::Workbook.new
     data = book.create_worksheet :name => 'Исследования'
-    data.row(0).concat ['Заказ', 'Дата', 'Антитело']
+    data.row(0).concat [t('activerecord.models.order'),
+                        t('activerecord.attributes.order.order_date'),
+                        t('activerecord.models.doctor'),
+                        t('activerecord.attributes.order.trial_type'),
+                        t('activerecord.models.antibody')]
     header_format = Spreadsheet::Format.new :color => :green, :weight => :bold
     data.row(0).default_format = header_format
 
-    trials = orders.collect { |order| order.trials.collect { |trial| {id: order.id, date: I18n.l(order.order_date), antibody_name: trial.antibody.name} } }.flatten
+    trials = orders.collect do |order|
+      order.trials.collect do |trial|
+        {id: order.id,
+         date: I18n.l(order.order_date),
+         antibody_name: trial.antibody.name,
+         doctor: order.doctor.name,
+         trial_type: order.trial_type.name
+        }
+      end
+    end
+    trials = trials.flatten
 
     trials.each_with_index do |trial, i|
-      data.row(i+1).push trial[:id], trial[:date], trial[:antibody_name]
+      data.row(i+1).push trial[:id], trial[:date], trial[:doctor], trial[:trial_type], trial[:antibody_name]
     end
     spreadsheet_file = StringIO.new('')
     book.write(spreadsheet_file)
