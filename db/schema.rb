@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150322132732) do
+ActiveRecord::Schema.define(version: 20150324104847) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -48,12 +48,12 @@ ActiveRecord::Schema.define(version: 20150322132732) do
     t.date     "order_date"
     t.integer  "doctor_id",       limit: 4
     t.integer  "trial_type_id",   limit: 4
-    t.string   "conclusion",      limit: 255
+    t.text     "conclusion",      limit: 65535
     t.string   "tracking_number", limit: 255
     t.integer  "laboratory_id",   limit: 4
-    t.string   "comment",         limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.text     "comment",         limit: 65535
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   add_index "orders", ["doctor_id"], name: "index_orders_on_doctor_id", using: :btree
