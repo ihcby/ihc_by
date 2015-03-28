@@ -10,6 +10,6 @@ class Order < ActiveRecord::Base
   validates_uniqueness_of :tracking_number
   validates_presence_of :order_date
 
-  default_scope { order(order_date: :desc) }
+  default_scope { includes(:doctor, :trial_type, trials: [:antibody, :pictures]).order(order_date: :desc) }
 
 end

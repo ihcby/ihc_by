@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
   before_filter :restore_order_query, only: :index
 
   def index
-    @orders = @laboratory.orders.paginate(page: params[:page])
+    @orders = @laboratory.orders
 
     if @order_params.trial_type_id
       @orders = @orders.where(trial_type_id: @order_params.trial_type_id)
