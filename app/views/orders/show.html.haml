@@ -38,12 +38,21 @@
             = link_to account_laboratory_order_trial_path(@account, @laboratory, @order, trial), method: :delete, data: { confirm:  t('common.question.are_you_sure') }, class: 'btn btn-danger btn-sm' do
               %span.glyphicon.glyphicon-remove
 
-%p
-  %b= "#{t('activerecord.attributes.order.comment')}:"
-  = @order.comment
-%p
-  %b= "#{t('activerecord.attributes.order.conclusion')}:"
-  = @order.conclusion
+
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      %b= t('activerecord.attributes.order.comment')
+  .panel-body= raw @order.comment
+
+
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      %b= t('activerecord.attributes.order.conclusion')
+  .panel-body= raw @order.conclusion
+
+
 
 
 

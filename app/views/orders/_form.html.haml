@@ -1,6 +1,6 @@
 = render partial: 'entity_breadcrumb'
 .row
-  .col-lg-6.col-lg-offset-3
+  .col-lg-9.col-lg-offset-1
     .well
       = simple_form_for([@account, @laboratory, @order]) do |f|
         %legend
@@ -9,7 +9,7 @@
         = f.input :order_date, as: :date_picker, input_html: {class: 'datetimepicker form-control'}, autocomplete: 'off'
         = f.association :doctor, as: :select, collection: @account.doctors, input_html: {class: 'selectized'}
         = f.association :trial_type,as: :select,  collection: @laboratory.trial_types , input_html: {class: 'selectized'}
-        = f.input :conclusion, as: :text
-        = f.input :comment, as: :text
+        = f.input :conclusion, as: :text, input_html: {class: 'wysihtml5'}
+        = f.input :comment, as: :text, input_html: {class: 'wysihtml5'}
         = f.button :submit, t('common.actions.save')
 

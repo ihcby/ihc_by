@@ -31,6 +31,7 @@ gem 'momentjs-rails', '~> 2.9', :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'paperclip', '~> 4.2'
 gem 'fancybox2-rails', '~> 0.2.8'
+gem 'bootstrap-wysihtml5-rails'
 
 group :development do
   gem 'better_errors'

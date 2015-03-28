@@ -26,6 +26,7 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers
+//= require bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min
 //= require moment/ru
 
 
