@@ -1,42 +1,52 @@
 = render partial: 'entity_breadcrumb'
 
-%p
-  %b= "#{t('activerecord.attributes.order.order_date')}:"
-  = l(@order.order_date)
-%p
-  %b= "#{t('activerecord.attributes.order.doctor')}:"
-  = @order.doctor.name
-%p
-  %b= "#{t('activerecord.attributes.order.trial_type')}:"
-  = @order.trial_type.name
-%p
-  %b= "#{t('activerecord.attributes.order.tracking_number')}:"
-  = @order.tracking_number
-%h3= t('pages.trials.lables.trials.title')
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      %b= @order.tracking_number
+      .pull-right
+        = link_to t('action.common.edit'), edit_account_laboratory_order_path(@account,@laboratory,@order), class: 'btn btn-primary btn-sm'
 
-%table.table.table-striped.table-condensed
-  %thead
-    %tr
-      %th
-      %th= t('activerecord.models.antibody')
-      %th
-      %th
-        .pull-right
-          = link_to t('pages.trials.links.trials_list.new_many'), new_account_laboratory_order_trial_path(@account, @laboratory, @order), class: 'btn btn-primary btn-sm'
+  .panel-body
+    %p
+      %b= "#{t('activerecord.attributes.order.order_date')}:"
+      = l(@order.order_date)
+    %p
+      %b= "#{t('activerecord.attributes.order.doctor')}:"
+      = @order.doctor.name
+    %p
+      %b= "#{t('activerecord.attributes.order.trial_type')}:"
+      = @order.trial_type.name
+    %p
+
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      %b= t('pages.trials.lables.trials.title')
+  .panel-body
+    %table.table.table-striped.table-condensed
+      %thead
+        %tr
+          %th
+          %th= t('activerecord.models.antibody')
+          %th
+          %th
+            .pull-right
+              = link_to t('pages.trials.links.trials_list.new_many'), new_account_laboratory_order_trial_path(@account, @laboratory, @order), class: 'btn btn-primary btn-sm'
 
 
-  %tbody
-    - @order.trials.each do |trial|
-      %tr
-        %td= link_to trial.id, account_laboratory_order_trial_path(@account, @laboratory, @order, trial)
-        %td= trial.antibody.name
-        %td= render partial: 'order_in_list_pictures', locals: {pictures: trial.pictures, id: trial.id}
-        %td
-          .pull-right
-            = link_to edit_account_laboratory_order_trial_path(@account, @laboratory, @order, trial), class: 'btn btn-default btn-sm', alt: t('action.common.edit'), title: t('action.common.edit') do
-              %span.glyphicon.glyphicon-pencil
-            = link_to account_laboratory_order_trial_path(@account, @laboratory, @order, trial), method: :delete, data: { confirm:  t('common.question.are_you_sure') }, class: 'btn btn-danger btn-sm' do
-              %span.glyphicon.glyphicon-remove
+      %tbody
+        - @order.trials.each do |trial|
+          %tr
+            %td= link_to trial.id, account_laboratory_order_trial_path(@account, @laboratory, @order, trial)
+            %td= trial.antibody.name
+            %td= render partial: 'order_in_list_pictures', locals: {pictures: trial.pictures, id: trial.id}
+            %td
+              .pull-right
+                = link_to edit_account_laboratory_order_trial_path(@account, @laboratory, @order, trial), class: 'btn btn-default btn-sm', alt: t('action.common.edit'), title: t('action.common.edit') do
+                  %span.glyphicon.glyphicon-pencil
+                = link_to account_laboratory_order_trial_path(@account, @laboratory, @order, trial), method: :delete, data: { confirm:  t('common.question.are_you_sure') }, class: 'btn btn-danger btn-sm' do
+                  %span.glyphicon.glyphicon-remove
 
 
 .panel.panel-default
@@ -51,9 +61,3 @@
     .panel-title
       %b= t('activerecord.attributes.order.conclusion')
   .panel-body= raw @order.conclusion
-
-
-
-
-
-= link_to t('action.common.edit'), edit_account_laboratory_order_path(@account,@laboratory,@order)
