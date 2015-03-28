@@ -11,7 +11,7 @@
           %th= t('activerecord.attributes.order.tracking_number')
           %th= t('activerecord.attributes.order.trial_type')
           %th= t('activerecord.attributes.order.doctor')
-          %th= t('activerecord.attributes.order.antibodies')
+          %th= t('activerecord.attributes.order.trials')
           %th
             .pull-right
               = link_to t('pages.orders.links.orders_list.new'), new_account_laboratory_order_path(@account, @laboratory), class: 'btn btn-primary btn-sm'
@@ -25,8 +25,12 @@
             %td= order.trial_type.name
             %td= order.doctor.name
             %td.inline
-              - order.trials.each do |trial|
-                %span.label.label-info= trial.antibody.name
+              .div
+                %p
+                  - order.trials.each do |trial|
+                    %span.label.label-info= trial.antibody.name
+              .div
+                = render partial: 'order_in_list_pictures', locals: {pictures: order.trials.flat_map{|t| t.pictures}, id: order.id}
             %td
               .pull-right
                 = link_to edit_account_laboratory_order_path(@account, @laboratory, order), class: 'btn btn-default btn-sm', alt: t('action.common.edit'), title: t('action.common.edit') do
