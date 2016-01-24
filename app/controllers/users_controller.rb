@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   load_and_authorize_resource :user
 
   def index
+    @users = @users.paginate(page: params[:page])
+    respond_with(@users)
   end
 
   def update
