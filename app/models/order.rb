@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
   belongs_to :doctor
   belongs_to :trial_type
+  belongs_to :laboratory
   has_many :trials
 
 

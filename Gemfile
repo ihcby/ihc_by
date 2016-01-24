@@ -35,7 +35,7 @@ gem 'bootstrap-wysihtml5-rails'
 
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_21]
+  gem 'binding_of_caller'
   gem 'capistrano', '~> 2.15.5'
   # gem 'capistrano-local-precompile', require: false
   # gem 'capistrano', '~> 3.0.1'

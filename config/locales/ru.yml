@@ -117,8 +117,10 @@ ru:
           title: "Профиль"
         antibody:
           title: "Антитела"
-        account:
+        accounts:
           title: "Организации"
+        account:
+          title: "Моя организация"
         doctors:
           title: "Доктора"
         laboratories:
